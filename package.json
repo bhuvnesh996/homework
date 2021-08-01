@@ -11,14 +11,12 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
-"scripts": {
-    "ios": "react-native run-ios",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "test:e2e":"npm run test",
-    "build": "npm run build"// DO SOMETHING HERE!!!!,
-    "test:e2e:build":"npm run build"  // THIS SCRIPT WILL STILL BREAK FOR YOU
-},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
