@@ -5,7 +5,7 @@ function Popup({srcPath,handleClose}) {
         <div className="popup-box" >
              <div className="box">
                 <button class='close-icon' onClick={handleClose}>x</button>
-                <img src={srcPath}  alt=''/>
+                <img src={srcPath}  alt='' className='w-100'/>
             </div>    
             
         </div>

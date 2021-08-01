@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Filter from "./Filter";
 import Grid from "./Grid";
 
 
@@ -13,13 +14,7 @@ function App() {
     .then(function(response){
       return response.json();
     }).then(function(j){
-      let picArray = j.photos.photo   //.map((pic)=>{
-       // var srcPath = 'https://farm'+pic.farm+'.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
-     //  var raw =  pic.farm + pic.server + pic.id + pic.secrete
-     //   return(
-     //    raw
-      //  )
-     // })
+      let picArray = j.photos.photo      //fetching data from api method flicke.photos.getrecent
       setData(picArray)
       console.log(data)
     })
@@ -30,10 +25,14 @@ function App() {
   return (
     
     <div className="App">
-        <div>
+        <div className="header">
+          <h1>Photo Gallery</h1>
           <input type="text" onChange={e=> setTags(e.target.value)} value={tags} />
         </div>
-        <div> {data&&data.map((pic)=>{
+        <div> {tags?
+         <Filter  tags={tags} setIsOpen={setIsOpen} isOpen={isOpen} />                                             //conditional setting between filter data and default data
+                                                                                                                            //in we have some input in inputbox we render filter component else we render default component
+        :data.map((pic)=>{
           return <Grid key={pic.id} id={pic.id} farm ={pic.farm} server = {pic.server} secret={pic.secret} setIsOpen={setIsOpen} isOpen={isOpen}/>
         })}</div>
     </div>

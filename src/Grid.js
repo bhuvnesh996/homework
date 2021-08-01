@@ -5,12 +5,13 @@ function Grid({id,farm,server,secret,setIsOpen,isOpen}) {
 
     const srcPath ='https://farm'+farm+'.staticflickr.com/'+server+'/'+id+'_'+secret+'.jpg'
     const togglePopup =()=>{
-        setIsOpen(!isOpen);
-    }
+        setIsOpen(!isOpen);}
     return (
-        <div>
+        <div className='row1'>
+            <div className='column'>
            <img  src={srcPath} alt='' onClick={togglePopup}/>
            {isOpen&&<Popup srcPath={srcPath} handleClose={togglePopup} />}
+            </div>
         </div>
     )
 }
